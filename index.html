@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Trip 2025 — A Complete Itinerary</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cph: #2C5282;
+    --cph-light: #EBF4FF;
+    --cph-accent: #63B3ED;
+    --milan: #276749;
+    --milan-light: #F0FFF4;
+    --milan-accent: #68D391;
+    --rome: #C05621;
+    --rome-light: #FFFAF0;
+    --rome-accent: #F6AD55;
+    --paris: #702459;
+    --paris-light: #FFF5F7;
+    --paris-accent: #F687B3;
+    --travel: #4A5568;
+    --travel-light: #F7FAFC;
+    --bg: #FAFAF8;
+    --white: #FFFFFF;
+    --text: #1A202C;
+    --muted: #718096;
+    --border: #E2E8F0;
+    --warning: #D69E2E;
+    --warning-light: #FFFFF0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  /* HEADER */
+  .header {
+    background: #1A202C;
+    color: white;
+    padding: 48px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+  .header-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 12px;
+  }
+  .header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+  .header-title em { font-style: italic; color: rgba(255,255,255,0.6); }
+  .header-dates {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 16px;
+    font-weight: 300;
+  }
+  .city-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .city-pill {
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .pill-cph { background: var(--cph); color: white; }
+  .pill-milan { background: var(--milan); color: white; }
+  .pill-rome { background: var(--rome); color: white; }
+  .pill-paris { background: var(--paris); color: white; }
+
+  /* ALERTS */
+  .alerts {
+    padding: 24px 40px;
+    background: var(--warning-light);
+    border-bottom: 1px solid #FAF089;
+  }
+  .alerts-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warning);
+    margin-bottom: 12px;
+  }
+  .alert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+  }
+  .alert-item {
+    display: flex;
+    gap: 8px;
+    font-size: 13px;
+    color: #744210;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #FAF089;
+    align-items: flex-start;
+  }
+  .alert-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+  /* BOOKINGS BANNER */
+  .bookings {
+    padding: 16px 40px;
+    background: #EBF8FF;
+    border-bottom: 1px solid #BEE3F8;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .bookings-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #2C5282;
+    white-space: nowrap;
+  }
+  .booking-tag {
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    background: white;
+    border: 1px solid #BEE3F8;
+    color: #2C5282;
+  }
+
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 40px; }
+
+  /* PART HEADER */
+  .part-header {
+    margin-bottom: 28px;
+    margin-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+  }
+  .part-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .part-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    margin-top: 4px;
+    color: var(--text);
+  }
+
+  /* DAY CARD */
+  .day-card {
+    background: var(--white);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+  }
+  .day-header {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+  .day-header:hover { background: rgba(0,0,0,0.01); }
+  .day-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--muted);
+    min-width: 32px;
+    line-height: 1;
+  }
+  .day-info { flex: 1; }
+  .day-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+  .day-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 1px;
+  }
+  .city-badge {
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .badge-cph { background: var(--cph-light); color: var(--cph); }
+  .badge-milan { background: var(--milan-light); color: var(--milan); }
+  .badge-rome { background: var(--rome-light); color: var(--rome); }
+  .badge-paris { background: var(--paris-light); color: var(--paris); }
+  .badge-travel { background: var(--travel-light); color: var(--travel); }
+
+  /* TOGGLE */
+  .toggle-icon {
+    font-size: 18px;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+  .day-card.collapsed .toggle-icon { transform: rotate(-90deg); }
+  .day-card.collapsed .day-body { display: none; }
+
+  /* TIMETABLE */
+  .day-body { padding: 0; }
+  .timetable { width: 100%; border-collapse: collapse; }
+  .timetable tr { border-bottom: 1px solid var(--border); }
+  .timetable tr:last-child { border-bottom: none; }
+  .timetable tr:hover { background: rgba(0,0,0,0.015); }
+
+  .time-cell {
+    padding: 11px 16px 11px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+    vertical-align: top;
+    width: 90px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.3px;
+  }
+  .dot-cell {
+    padding: 11px 0;
+    vertical-align: top;
+    width: 16px;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .activity-cell {
+    padding: 11px 20px 11px 10px;
+    vertical-align: top;
+  }
+  .activity-main {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .activity-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+  .activity-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+  .tag-flight { background: #EBF8FF; color: #2B6CB0; }
+  .tag-train { background: #E6FFFA; color: #276749; }
+  .tag-food { background: #FFFAF0; color: #C05621; }
+  .tag-class { background: #FAF5FF; color: #6B46C1; }
+  .tag-show { background: #FFF5F7; color: #97266D; }
+  .tag-book { background: #FFFFF0; color: #975A16; border: 1px solid #F6E05E; }
+  .tag-tip { background: #F0FFF4; color: #276749; }
+  .tag-alt { background: #F7FAFC; color: #4A5568; border: 1px dashed #CBD5E0; }
+
+  /* ACCENT LINE */
+  .cph-accent .day-header { border-left: 4px solid var(--cph); }
+  .milan-accent .day-header { border-left: 4px solid var(--milan); }
+  .rome-accent .day-header { border-left: 4px solid var(--rome); }
+  .paris-accent .day-header { border-left: 4px solid var(--paris); }
+  .travel-accent .day-header { border-left: 4px solid var(--travel); }
+
+  .dot-cph { background: var(--cph); }
+  .dot-milan { background: var(--milan); }
+  .dot-rome { background: var(--rome); }
+  .dot-paris { background: var(--paris); }
+  .dot-travel { background: var(--travel); }
+  .dot-food { background: #ED8936; }
+  .dot-flight { background: #4299E1; }
+  .dot-class { background: #9F7AEA; }
+  .dot-free { background: #CBD5E0; }
+
+  /* SECTION DIVIDER */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0 20px;
+  }
+  .section-divider-line { flex: 1; height: 1px; background: var(--border); }
+  .section-divider-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* TIPS SECTION */
+  .tips-section {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .tip-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .tip-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tip-item {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.5;
+    align-items: flex-start;
+  }
+  .tip-bullet { flex-shrink: 0; margin-top: 2px; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 32px 40px;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+    font-style: italic;
+  }
+
+  /* HIGHLIGHT ROW */
+  .row-highlight { background: rgba(246, 173, 85, 0.07) !important; }
+
+  /* PRINT */
+  @media print {
+    .day-card.collapsed .day-body { display: table !important; }
+    .toggle-icon { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .container, .header, .alerts, .bookings { padding-left: 16px; padding-right: 16px; }
+    .header-title { font-size: 36px; }
+    .time-cell { width: 70px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-label">Spring 2025 — Complete Itinerary</div>
+  <div class="header-title">Copenhagen, <em>Milano,</em><br>Roma & <em>Paris</em></div>
+  <div class="header-dates">March 31 — April 16, 2025 &nbsp;·&nbsp; 17 Days</div>
+  <div class="city-pills">
+    <span class="city-pill pill-cph">🇩🇰 Copenhagen</span>
+    <span class="city-pill pill-milan">🇮🇹 Milano</span>
+    <span class="city-pill pill-rome" style="background:#C05621">🏛 Roma</span>
+    <span class="city-pill pill-paris">🇫🇷 Paris</span>
+  </div>
+</div>
+
+<!-- ALERTS -->
+<div class="alerts">
+  <div class="alerts-title">⚠ Notes & Clarifications</div>
+  <div class="alert-grid">
+    <div class="alert-item"><span class="alert-icon">✈️</span><span><strong>Airports confirmed:</strong> Flying into <strong>CDG (Charles de Gaulle)</strong> for Paris — easy RER B straight to your flat. Flying out of <strong>BGY (Bergamo)</strong> from Milan — same Orio Shuttle bus you arrive on.</span></div>
+    <div class="alert-item"><span class="alert-icon">🎓</span><span><strong>Friday Apr 11 classes</strong> — You'd normally have Mobile App Dev (8–10am) and LSDA (10am–2pm), but you're in Paris. Assumed skipped/online. Adjust if needed.</span></div>
+    <div class="alert-item"><span class="alert-icon">🧳</span><span><strong>Apr 7 luggage in Milan</strong> — Store bags at Milano Centrale KiPoint lockers (€6–8/bag, open until midnight) so you can explore freely before your <strong>22:15 flight</strong>.</span></div>
+    <div class="alert-item"><span class="alert-icon">🚂</span><span><strong>Trains must be pre-booked</strong> — Milan↔Rome Frecciarossa sells out fast. Buy at Trenitalia.com ASAP. Journey is ~3h for both directions.</span></div>
+    <div class="alert-item"><span class="alert-icon">🏛</span><span><strong>Easter Monday = Colosseum chaos</strong> — Apr 6 is one of the busiest days of the year in Rome. Timed-entry slots at coopculture.it will sell out weeks ahead. Book today.</span></div>
+    <div class="alert-item"><span class="alert-icon">🏛</span><span><strong>Borghese Gallery — book or forget it</strong> — Strictly timed 2h slots, max 360 visitors, almost always fully booked well in advance. If you want it, book at galleriaborghese.it now. Otherwise skip it entirely.</span></div>
+    <div class="alert-item"><span class="alert-icon">🍽</span><span><strong>Da Enzo al 29 (Rome, Apr 7)</strong> — One of Trastevere's most popular trattorias. Books out days ahead. Reserve at daenzonal29.com or via TheFork as soon as possible.</span></div>
+    <div class="alert-item"><span class="alert-icon">🍽</span><span><strong>Cantina (Copenhagen, Apr 8)</strong> — Popular with locals, books up on weekends. Reserve at cantinacph.dk a few days before.</span></div>
+  </div>
+</div>
+
+<!-- BOOKINGS BANNER -->
+<div class="bookings">
+  <span class="bookings-label">📋 Pre-Book Now</span>
+  <span class="booking-tag">🏛 Colosseum + Forum (Easter Mon!)</span>
+  <span class="booking-tag">🏛 Borghese Gallery</span>
+  <span class="booking-tag">🎨 Louvre (timed entry)</span>
+  <span class="booking-tag">🗼 Eiffel Tower (summit)</span>
+  <span class="booking-tag">💀 Paris Catacombs</span>
+  <span class="booking-tag">🎭 Moulin Rouge</span>
+  <span class="booking-tag">🏰 Disneyland Paris</span>
+  <span class="booking-tag">🚂 Frecciarossa trains</span>
+  <span class="booking-tag">🍽 Da Enzo al 29</span>
+  <span class="booking-tag">🍽 Cantina CPH</span>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- ======================== PART 1 ======================== -->
+  <div class="part-header">
+    <div class="part-label">Part One</div>
+    <div class="part-title">Copenhagen &amp; Italy — March 31 to April 8</div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-card cph-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">1</div>
+      <div class="day-info">
+        <div class="day-date">Tuesday, March 31</div>
+        <div class="day-title">She Arrives — First Taste of Copenhagen</div>
+      </div>
+      <span class="city-badge badge-cph">Copenhagen</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">07:10</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ Girlfriend lands at CPH Airport</div><div class="activity-sub">Head to baggage claim, meet her at arrivals</div></td></tr>
+        <tr><td class="time-cell">08:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Travel to Oresundskollegiet</div><div class="activity-sub">Metro M2 → Christianshavn or Øresund, ~30–40 min from airport</div></td></tr>
+        <tr><td class="time-cell">09:00</td><td class="dot-cell"><div class="dot dot-free"></div></td><td class="activity-cell"><div class="activity-main">Freshen up & settle in</div><div class="activity-sub">She's had an early flight — let her shower, rest briefly, have a light breakfast</div></td></tr>
+        <tr><td class="time-cell">10:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Brunch at Lagkagehuset</div><div class="activity-sub">Copenhagen's beloved bakery chain — perfect introduction to Danish baking. Try the spandauer and cinnamon snails.<br><span class="activity-tag tag-food">Pastry rec</span></div></td></tr>
+        <tr><td class="time-cell">12:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Nyhavn Stroll</div><div class="activity-sub">The iconic colourful canal houses — a gentle, no-effort introduction to the city. Easter Monday means most shops are closed but the waterfront is beautiful and lively. Grab an ice cream or coffee along the canal.</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">15:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">🎡 Enter Tivoli Gardens (Easter Edition)</div><div class="activity-sub">Tivoli is decorated top to bottom for Easter — eggs, bunnies, spring flowers everywhere. Spend the afternoon exploring at a relaxed pace: rides, gardens, live entertainment, the lake. Don't rush — you're here for the long haul.<br><span class="activity-tag tag-book">Buy tickets online in advance — cheaper & no queue</span></div></td></tr>
+        <tr><td class="time-cell">17:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Golden hour in the gardens</div><div class="activity-sub">As the afternoon softens, the gardens shift atmosphere entirely. The flower beds, fountains, and old wooden roller coaster look stunning in the late light. A good time to slow down, find a bench, and just soak it in together.</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">18:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Dinner inside Tivoli</div><div class="activity-sub">Stay in — there's no need to leave. Multiple restaurants inside at different price points:<br><strong>Casual:</strong> Grøften (classic Danish, been there since 1874, very atmospheric)<br><strong>Mid-range:</strong> Færgekroen (right on the lake, lovely setting)<br><strong>Splurge:</strong> Nimb Brasserie (inside the Moorish palace — stunning)<br><span class="activity-tag tag-tip">Eating inside means you keep your spot for the evening lights</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">20:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">✨ Tivoli after dark — the real magic</div><div class="activity-sub">This is why you stay. Over 100,000 lights illuminate the entire park at dusk — the gardens, the lake, the rides, the palace all transform. There's live music most evenings and the atmosphere becomes genuinely enchanting. On Easter evenings there are often special performances too. This will be one of the most memorable nights of the trip.<br><span class="activity-tag tag-tip">Stay as late as you like — park closes around 22:00–23:00</span></div></td></tr>
+        <tr><td class="time-cell">22:30</td><td class="dot-cell"><div class="dot dot-free"></div></td><td class="activity-cell"><div class="activity-main">Head home — early night</div><div class="activity-sub">She's had an early flight and a full first day. Perfect time to call it. Tomorrow is a proper Copenhagen exploration day.</div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-card cph-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">2</div>
+      <div class="day-info">
+        <div class="day-date">Wednesday, April 1</div>
+        <div class="day-title">Palaces, Markets & Nørrebro</div>
+      </div>
+      <span class="city-badge badge-cph">Copenhagen</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">09:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Breakfast — Andersen & Maillard (Nørrebro)</div><div class="activity-sub">A cult Nørrebro bakery by two former Noma bakers — excellent pastries and a proper Nordic breakfast spread. The branch on Elmegade 15 is perfectly placed for the day ahead. Try the pistachio croissant or the rye roll with butter.<br><span class="activity-tag tag-food">Hart Bageri saved for tomorrow — don't double up</span></div></td></tr>
+        <tr><td class="time-cell">10:30</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Rosenborg Castle & King's Garden</div><div class="activity-sub">Beautiful Renaissance castle with the Crown Jewels. The surrounding park is perfect for a spring stroll. ~45 min inside.</div></td></tr>
+        <tr><td class="time-cell">12:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🛒 Torvehallerne Food Market — coffee & snacks</div><div class="activity-sub">Glass market halls near Nørreport — good for a browse and a coffee before heading to Nørrebro. Pick up pastries or something small, but save your appetite for lunch.</div></td></tr>
+        <tr><td class="time-cell">13:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍗 Poulette — Lunch</div><div class="activity-sub">Copenhagen's cult fried chicken sandwich spot on Møllegade 1, Nørrebro — right where you'll be for shopping. Nashville-style fried chicken or mapo tofu in a brioche bun with pickled cucumber, mayo and cheese. <strong>Spicy by default</strong> — ask for the "kids version" if you want it mild. Fries with Sichuan pepper mayo are essential. Eat on the plastic chairs outside.<br>⚠ <strong>Open Wed–Sun, 11am until sold out</strong> — go by 13:00 at the latest to be safe.<br><span class="activity-tag tag-food">Hidden gem — one of CPH's most loved lunch spots</span></div></td></tr>
+        <tr><td class="time-cell">14:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Nørrebro — Vintage & Thrift Shopping</div><div class="activity-sub">Ravnsborggade and Elmegade streets have some of the best vintage/thrift stores in CPH: <strong>Episode</strong>, <strong>UFF</strong>, <strong>Wasteland</strong>. Super fun for both of you.<br><span class="activity-tag tag-tip">Girlfriend rec — thrifting</span></div></td></tr>
+        <tr><td class="time-cell">15:30</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Freetown Christiania</div><div class="activity-sub">The famous self-governing commune — alternative, colourful, full of street art and handmade crafts. Walk the main drag, browse the art stalls, grab a coffee at Café Nemoland. No photography on Pusher Street but the rest is very photogenic.</div></td></tr>
+        <tr><td class="time-cell">17:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">📸 Church of Our Saviour — Spiral Tower</div><div class="activity-sub">5 min walk from Christiania. The external spiral staircase winds around the outside of the spire — the views over Copenhagen from the top are genuinely stunning and make for incredible photos. ~€7pp, closes at 19:00. Address: Sankt Annæ Gade 29.<br><span class="activity-tag tag-tip">Photography rec — one of CPH's best viewpoints</span></div></td></tr>
+        <tr><td class="time-cell">19:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Reffen Street Food Market</div><div class="activity-sub">Copenhagen's coolest outdoor street food market, right on the waterfront of Refshaleøen (same island as Christiania — walkable or short Uber). Dozens of vendors, incredible variety, young crowd, outdoor seating with harbour views. Perfect for a relaxed dinner where you both try different things. Open until 22:00.<br><span class="activity-tag tag-tip">Hidden gem — most tourists don't make it here</span><span class="activity-tag tag-food">Girlfriend will love this</span></div></td></tr>
+        <tr><td class="time-cell">21:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">🎷 Mojo Blues Bar — Nørrebro</div><div class="activity-sub">One of Copenhagen's best live music bars — blues, jazz and soul acts most nights, tiny and atmospheric, very local crowd. Address: Løngangstræde 21C. Cover charge ~€8–12. Check schedule at <strong>mojo.dk</strong>.<br><span class="activity-tag tag-alt">Alt: Copenhagen Jazz House (Niels Hemmingsensgade 10) for a bigger, more polished jazz venue</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-card cph-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">3</div>
+      <div class="day-info">
+        <div class="day-date">Thursday, April 2</div>
+        <div class="day-title">Frederiksberg &amp; Packing Day</div>
+      </div>
+      <span class="city-badge badge-cph">Copenhagen</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">09:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Hart Bageri — Morning pastry</div><div class="activity-sub">Frederiksberg neighbourhood. Don't miss their rye bread with butter or the chocolate croissant.</div></td></tr>
+        <tr><td class="time-cell">10:30</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Frederiksberg Palace & Gardens</div><div class="activity-sub">Stunning baroque palace with free public gardens. The elephant enclosure of Copenhagen Zoo borders the park — you can sometimes see the elephants!</div></td></tr>
+        <tr><td class="time-cell">12:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">Lunch near Frederiksberg or back in city</div><div class="activity-sub"><strong>Rec:</strong> Café Atelier September (Gammel Strand area) — avocado toast, gorgeous sandwiches, lovely light space</div></td></tr>
+        <tr><td class="time-cell">14:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Strøget + Kronprinsensgade shopping</div><div class="activity-sub">Stores fully open today. Main street brands on Strøget, then duck into <strong>Kronprinsensgade</strong> — a quieter parallel street with the best Scandi independent boutiques: <strong>Acne Studios</strong> (no.11), <strong>Stine Goya</strong> (Grønnegade 11), <strong>Cecilie Bahnsen</strong> for Danish fashion. <strong>Weekday</strong> (Kronprinsensgade 6) for more affordable but still cool pieces.<br><span class="activity-tag tag-tip">Girlfriend rec — Stine Goya and Cecilie Bahnsen are very aesthetic</span></div></td></tr>
+        <tr><td class="time-cell">16:30</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">📸 Superkilen Park — Nørrebro</div><div class="activity-sub">One of Copenhagen's most visually striking spots — a long urban park split into three colour zones (red, black, green) filled with objects from 60 different countries. Incredibly photogenic and very off the tourist trail. Address: Nørrebrogade 210. Metro: Nørrebrogade station.<br><span class="activity-tag tag-tip">Photography rec — genuinely unique and very instagrammable</span></div></td></tr>
+        <tr><td class="time-cell">17:30</td><td class="dot-cell"><div class="dot dot-free"></div></td><td class="activity-cell"><div class="activity-main">Head home — pack for Milan</div><div class="activity-sub">You have an early start tomorrow. Be packed and ready tonight. Carry-on only if possible to avoid baggage claim delays.</div></td></tr>
+        <tr><td class="time-cell">19:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Dinner + drinks — Kødbyen (Meatpacking District)</div><div class="activity-sub">Vesterbro's coolest neighbourhood. Old meatpacking warehouses turned into bars, restaurants and clubs. <strong>Rec:</strong> Bæst (wood-fired pizza, great cocktails), then drinks at <strong>Jolene</strong> (bar with DJs and outdoor area) or <strong>Bakken</strong> (cult Copenhagen bar, late night). Keep it to one or two drinks — early flight tomorrow.<br><span class="activity-tag tag-alt">Alt: Granola café for something lower-key if you want an early night</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">22:00</td><td class="dot-cell"><div class="dot dot-free"></div></td><td class="activity-cell"><div class="activity-main">😴 Early bedtime — 3:30am wake-up tomorrow</div><div class="activity-sub">Set multiple alarms. Airport at 4:25am for 6:25am flight.</div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-card travel-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">4</div>
+      <div class="day-info">
+        <div class="day-date">Friday, April 3</div>
+        <div class="day-title">CPH → Bergamo → Milan — Benvenuti!</div>
+      </div>
+      <span class="city-badge badge-travel">Travel + Milan</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr class="row-highlight"><td class="time-cell">03:30</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">⏰ Wake up</div><div class="activity-sub">Coffee, last bag check, out the door by 4:10am at latest</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">04:25</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ At Copenhagen Airport (CPH)</div><div class="activity-sub">Check-in, security, gate. 2h buffer as planned.<br><span class="activity-tag tag-flight">Flight @ 06:25</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">08:35</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ Land at Bergamo Orio al Serio (BGY)</div><div class="activity-sub">Passport control, collect bags if checked. Then head to <strong>Orio Shuttle</strong> bus stop (outside arrivals) — buses run every 30 min to Milano Centrale, ~€6 each. Journey ~50–60 min.<br><span class="activity-tag tag-train">Bus to Milan</span></div></td></tr>
+        <tr><td class="time-cell">10:00</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">Arrive Milano Centrale</div><div class="activity-sub">Take Metro M2 (green line) 2 stops to Porta Venezia — Viale Premuda 5 is a ~5 min walk from there</div></td></tr>
+        <tr><td class="time-cell">10:30</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">🏠 Check in — Viale Premuda 5</div><div class="activity-sub">Drop bags, freshen up. You're in a prime spot: Corso Buenos Aires (major shopping street) is literally at your doorstep.</div></td></tr>
+        <tr><td class="time-cell">12:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍕 Lunch — Local trattoria near Porta Venezia</div><div class="activity-sub"><strong>Rec:</strong> Trattoria del Nuovo Macello (a bit further) or any local bar/tavola calda for a quick Milanese lunch. Try <em>cotoletta</em> or a proper Italian panino.<br><span class="activity-tag tag-food">First Italian meal!</span></div></td></tr>
+        <tr><td class="time-cell">14:00</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">🏛 Duomo di Milano + Piazza del Duomo</div><div class="activity-sub">One of the world's largest Gothic cathedrals. Go up to the rooftop terraces for incredible views (book rooftop entry online). The Piazza is magnificent. Walk through the adjoining <strong>Galleria Vittorio Emanuele II</strong> — high-end arcade with Prada, Gucci, Louis Vuitton.<br><span class="activity-tag tag-tip">Window shopping heaven</span></div></td></tr>
+        <tr><td class="time-cell">17:00</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">Brera neighbourhood stroll</div><div class="activity-sub">Milan's most charming district — cobbled streets, art galleries, boutique shops, excellent cafes. Pasticceria Marchesi has one of the best pastry counters in Milan.<br><span class="activity-tag tag-food">Pastry rec: Marchesi</span></div></td></tr>
+        <tr><td class="time-cell">19:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍹 Aperitivo hour → Dinner — Navigli</div><div class="activity-sub">Navigli canal district is Milan's coolest evening scene. Aperitivo (€8–10 drink + free buffet) at any bar along the canal. Then dinner at a trattoria nearby.<br><span class="activity-tag tag-tip">Must-do Milanese experience</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-card milan-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">5</div>
+      <div class="day-info">
+        <div class="day-date">Saturday, April 4</div>
+        <div class="day-title">Milan — Fashion, Aperitivo &amp; Isola</div>
+      </div>
+      <span class="city-badge badge-milan">Milano</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">09:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Breakfast at a local bar</div><div class="activity-sub">Italians do breakfast standing at the bar. Cornetto + cappuccino. Try <strong>Bar Luce</strong> (Fondazione Prada, Wes Anderson–designed!) or any neighbourhood cafe.<br><span class="activity-tag tag-food">Very Milanese experience</span></div></td></tr>
+        <tr><td class="time-cell">10:00</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">📸 Castello Sforzesco & Parco Sempione</div><div class="activity-sub">Impressive 15th-century fortress — the exterior and grounds are free and very photogenic. The adjoining Parco Sempione is Milan's answer to Central Park. Great for a morning wander and photos.<br><span class="activity-tag tag-alt">Alt if rainy: Fondazione Prada (Largo Isarco 2) — Prada's art and architecture space, genuinely one of the coolest buildings in Milan. Very aesthetic inside and out. ~€15pp.</span></div></td></tr>
+        <tr><td class="time-cell">12:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍝 Lunch — Porta Venezia neighbourhood</div><div class="activity-sub">You're staying in this area so make use of it — the streets around Viale Premuda and Corso Buenos Aires have plenty of good local trattorias. <strong>Rec:</strong> Trattoria Mirta or any spot on Via Lecco. Risotto alla Milanese is the thing to order in Milan.<br><span class="activity-tag tag-tip">Skip Brera for lunch — you already walked through it yesterday evening</span></div></td></tr>
+        <tr><td class="time-cell">14:30</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">Shopping: Corso Buenos Aires + Corso Como</div><div class="activity-sub">Start on Corso Buenos Aires (right by your flat — mix of high street and Italian brands), then head to <strong>Corso Como</strong> for a completely different energy: <strong>10 Corso Como</strong> is Milan's most iconic concept store — fashion, books, art, a garden café, all under one roof. Even just browsing is an experience. Address: Corso Como 10.<br><span class="activity-tag tag-tip">Girlfriend will love 10 Corso Como — very aesthetic space</span></div></td></tr>
+        <tr><td class="time-cell">17:00</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">🍹 Terrazza Aperol — Rooftop Aperitivo with Duomo views</div><div class="activity-sub">Milan's most iconic rooftop bar, right on Piazza del Duomo. Spritz with a direct view of the cathedral spires — photos here are unreal. Can get busy so arrive early for a spot. Address: Piazza del Duomo 21. No booking needed, just walk up.<br><span class="activity-tag tag-tip">📸 Best photography spot in Milan — go before sunset</span></div></td></tr>
+        <tr><td class="time-cell">19:00</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">📸 Isola neighbourhood — evening wander</div><div class="activity-sub">Milan's coolest up-and-coming neighbourhood north of Porta Garibaldi — a short tram ride from the centre. Street art, independent bars, young local crowd. Very different energy from Navigli (which you already did last night) — feels genuinely unpolished and real. Walk down Via Volturno and grab a drink at any bar along the way.<br><span class="activity-tag tag-tip">Keeps the evenings varied — you've already done Navigli</span></div></td></tr>
+        <tr><td class="time-cell">20:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Dinner — Isola neighbourhood</div><div class="activity-sub">Stay in the area rather than heading back to Navigli. <strong>Rec:</strong> Dry Milano (Via Solferino 33) — one of Milan's best cocktail bars with excellent pizza, very popular with locals. Or any of the small trattorias along Via Porro Lambertenghi. Isola has a great informal dining scene that most tourists completely miss.<br><span class="activity-tag tag-alt">Budget alt: grab a slice at any of the neighbourhood pizzerias along Via Volturno</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 6 -->
+  <div class="day-card travel-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">6</div>
+      <div class="day-info">
+        <div class="day-date">Sunday, April 5 — Easter Sunday</div>
+        <div class="day-title">Milan → Rome by Frecciarossa</div>
+      </div>
+      <span class="city-badge badge-travel">Milan → Rome</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">09:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Final Milan breakfast</div><div class="activity-sub">Last cornetto! Grab coffee and something from a nearby bar before checking out.</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">11:00</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">🏠 Check out of Milan accommodation</div><div class="activity-sub">Pack everything — you won't be back until the evening of April 7. Head to Milano Centrale with luggage.</div></td></tr>
+        <tr><td class="time-cell">11:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Lunch near Milano Centrale</div><div class="activity-sub"><strong>Rec:</strong> Eataly Milano Smeraldo (large Italian food market, ~10 min walk from Centrale) — pasta bar, pizza, deli counter. Easy with luggage.<br><span class="activity-tag tag-alt">Alt: Panini from any bar inside Centrale</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">13:00</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">🚄 Train: Milano Centrale → Roma Termini</div><div class="activity-sub">Frecciarossa high-speed train. Journey ~3h. Suggest booking the 13:00 or 13:30 departure for comfortable timing. Book standard (2nd class) — perfectly comfortable.<br><span class="activity-tag tag-train">Pre-book on Trenitalia.com</span></div></td></tr>
+        <tr><td class="time-cell">16:00</td><td class="dot-cell"><div class="dot dot-rome"></div></td><td class="activity-cell"><div class="activity-main">🚉 Arrive Roma Termini</div><div class="activity-sub">Take Metro Line A towards Ottaviano, or Taxi/Uber to Ponte Milvio. <strong>La Maison a Ponte Milvio</strong> is in northern Rome (~7km from Termini, ~€15–20 Uber). Ponte Milvio area is charming — not touristy at all.</div></td></tr>
+        <tr><td class="time-cell">17:00</td><td class="dot-cell"><div class="dot dot-rome"></div></td><td class="activity-cell"><div class="activity-main">🏠 Check in at La Maison a Ponte Milvio</div><div class="activity-sub">Get settled. The Ponte Milvio neighbourhood is a lovely, residential area of Rome — feels very local. The bridge itself is nearby (famous for the love padlocks!)</div></td></tr>
+        <tr><td class="time-cell">18:30</td><td class="dot-cell"><div class="dot dot-rome"></div></td><td class="activity-cell"><div class="activity-main">Ponte Milvio bridge & Prati neighbourhood</div><div class="activity-sub">The ancient bridge over the Tiber. Walk into Prati — the neighbourhood has great restaurants, cafes, and gelaterias. Very local, very authentic.</div></td></tr>
+        <tr><td class="time-cell">20:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Dinner — Prati neighbourhood</div><div class="activity-sub"><strong>Rec:</strong> Il Sorpasso (wine bar with great food) or Pizzarium Bonci (takeaway-style Roman pizza al taglio — one of the best in Rome). No-fuss, delicious.<br><span class="activity-tag tag-food">You're 5 min from Gelateria dei Gracchi — save it for after Trastevere tomorrow</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 7 -->
+  <div class="day-card rome-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">7</div>
+      <div class="day-info">
+        <div class="day-date">Monday, April 6 — Easter Monday</div>
+        <div class="day-title">Rome — The Ancient &amp; The Beautiful</div>
+      </div>
+      <span class="city-badge badge-rome">Roma</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">08:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Roman breakfast — local bar</div><div class="activity-sub">Cornetto con crema + cappuccino. In Rome, breakfast is quick and delicious. Any neighbourhood bar near Ponte Milvio is perfect.</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">09:00</td><td class="dot-cell"><div class="dot dot-rome"></div></td><td class="activity-cell"><div class="activity-main">🏛 Colosseum & Roman Forum</div><div class="activity-sub">Book timed-entry online well in advance — Easter Monday will be one of the busiest days of the year in Rome. Allow ~2.5h for both sites. Taxi/Uber from Ponte Milvio (~€15).<br><span class="activity-tag tag-book">⚠ MUST pre-book tickets at coopculture.it</span></div></td></tr>
+        <tr><td class="time-cell">12:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥩 Lunch — Testaccio neighbourhood</div><div class="activity-sub">Rome's most authentic food neighbourhood, just south of the Colosseum. The <strong>Testaccio Market</strong> (Via Beniamino Franklin) is where real Romans shop — incredible food stalls, supplì (fried rice balls), porchetta sandwiches, fresh pasta. This is the un-touristy side of Rome at its best.<br><span class="activity-tag tag-tip">Hidden gem — most tourists never come here</span></div></td></tr>
+        <tr><td class="time-cell">14:00</td><td class="dot-cell"><div class="dot dot-rome"></div></td><td class="activity-cell"><div class="activity-main">📸 Trastevere — afternoon wander</div><div class="activity-sub">Rome's most photogenic neighbourhood. Ivy-covered walls, narrow cobbled lanes, flower-filled balconies — beautiful at every turn. Get gelato at <strong>Fatamorgana</strong> (Via Roma Libera 11 — creative flavours, one of Rome's best). Very lively on Easter Sunday afternoon.<br><span class="activity-tag tag-tip">📸 Best street photography neighbourhood in Rome</span></div></td></tr>
+        <tr><td class="time-cell">16:30</td><td class="dot-cell"><div class="dot dot-rome"></div></td><td class="activity-cell"><div class="activity-main">📸 Gianicolo Hill — Sunset viewpoint</div><div class="activity-sub">The best panoramic view in all of Rome — better than any rooftop bar and completely free. The entire city spreads out below, St Peter's dome dominating the skyline. At sunset this is genuinely breathtaking. ~15 min Uber from Trastevere or a steep 20 min walk up.<br><span class="activity-tag tag-tip">Best photography spot in Rome — arrive 30 min before sunset</span></div></td></tr>
+        <tr><td class="time-cell">18:30</td><td class="dot-cell"><div class="dot dot-rome"></div></td><td class="activity-cell"><div class="activity-main">🍹 Drinks — Campo de' Fiori → Piazza Navona</div><div class="activity-sub">Head down into the old city for evening drinks. Campo de' Fiori has a lively young bar scene at night — outdoor tables, very relaxed. Walk 5 min to Piazza Navona for Bernini's famous fountain lit up at night — one of the best evening spots in Rome. The Pantheon is also a 5 min walk if you want to pop in (book ahead).<br><span class="activity-tag tag-tip">📸 Piazza Navona at night is stunning for photos</span></div></td></tr>
+        <tr><td class="time-cell">20:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Dinner — Trastevere</div><div class="activity-sub"><strong>Rec:</strong> Da Enzo al 29 (classic Roman trattoria, book ahead) or Tonnarello for a bigger, livelier atmosphere with outdoor seating. End the night with gelato at <strong>Gelateria dei Gracchi</strong> on the way back to Ponte Milvio.<br><span class="activity-tag tag-alt">Alt if tired: Il Sorpasso in Prati (near your airbnb) — great wine bar with food plates, no booking needed</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 8 -->
+  <div class="day-card travel-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">8</div>
+      <div class="day-info">
+        <div class="day-date">Tuesday, April 7</div>
+        <div class="day-title">Rome → Milan → Night Flight Home</div>
+      </div>
+      <span class="city-badge badge-travel">Rome → Milan → CPH</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">08:30</td><td class="dot-cell"><div class="dot dot-rome"></div></td><td class="activity-cell"><div class="activity-main">Morning — Villa Borghese gardens</div><div class="activity-sub">Just 15 min walk from Ponte Milvio — a stunning park and one of Rome's most beautiful spaces. Enjoy a peaceful morning stroll before checking out. If you managed to book the Borghese Gallery (galleriaborghese.it), the 09:00 slot fits perfectly before checkout at 11:00.<br><span class="activity-tag tag-tip">Great use of the morning given your location</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">11:00</td><td class="dot-cell"><div class="dot dot-rome"></div></td><td class="activity-cell"><div class="activity-main">🏠 Check out of Rome accommodation</div><div class="activity-sub">Head to Roma Termini by taxi/Uber (~€15–20) with all luggage</div></td></tr>
+        <tr><td class="time-cell">12:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Farewell lunch in Rome</div><div class="activity-sub"><strong>Rec:</strong> Eataly Roma (near Ostiense, or the one by the Terme di Diocleziano near Termini) — great for a final Roman meal with easy luggage handling.<br><span class="activity-tag tag-alt">Alt: Quick lunch inside Roma Termini food area</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">13:30</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">🚄 Train: Roma Termini → Milano Centrale</div><div class="activity-sub">Suggest the 13:30 Frecciarossa (~3h). Arrive Milan ~16:30. Gives you 3h45min to kill before needing to head to the airport.<br><span class="activity-tag tag-train">Pre-book on Trenitalia.com</span></div></td></tr>
+        <tr><td class="time-cell">16:30</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">🧳 Store luggage at Milano Centrale</div><div class="activity-sub"><strong>KiPoint lockers</strong> in the station — €6–8 per bag, open until midnight. Free yourselves for the evening!<br><span class="activity-tag tag-tip">Highly recommended — don't drag bags around</span></div></td></tr>
+        <tr><td class="time-cell">17:00</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">Milan free time — Brera or Duomo revisit</div><div class="activity-sub">A coffee in Brera, one last gelato, stroll through Galleria Vittorio Emanuele. Light snack / early dinner before the airport.<br><span class="activity-tag tag-food">Aperitivo at a Navigli bar if time allows</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">19:00</td><td class="dot-cell"><div class="dot dot-milan"></div></td><td class="activity-cell"><div class="activity-main">Collect luggage from KiPoint, head to BGY (Bergamo)</div><div class="activity-sub"><strong>Orio Shuttle bus</strong> from Milano Centrale (same bus you came in on!) — departs every 30 min, ~55–60 min to Bergamo Orio al Serio airport. Buy return ticket at the bus stop or orioaeroporto.it (~€6). Depart by 19:00 → arrive BGY ~20:00 ✓<br><span class="activity-tag tag-flight">Same Orio Shuttle as arrival — you know the drill now</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">20:15</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ At Airport — Check in, security</div><div class="activity-sub">2h before 10:15pm flight as planned</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">22:15</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ Fly Milan → Copenhagen</div><div class="activity-sub"><span class="activity-tag tag-flight">Flight @ 22:15 → Land CPH 00:20 (Apr 8)</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 9 -->
+  <div class="day-card cph-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">9</div>
+      <div class="day-info">
+        <div class="day-date">Wednesday, April 8</div>
+        <div class="day-title">Back in Copenhagen — Recovery + Classes</div>
+      </div>
+      <span class="city-badge badge-cph">Copenhagen</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">00:20</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ Land in Copenhagen</div><div class="activity-sub">Metro home, ~40 min. You're both going to be tired — get to bed!</div></td></tr>
+        <tr><td class="time-cell">10:00</td><td class="dot-cell"><div class="dot dot-free"></div></td><td class="activity-cell"><div class="activity-main">😴 Sleep in — slow morning</div><div class="activity-sub">No rush. You landed at 12:20am — take it easy. Brunch at home or nearby. She'll understand!</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">12:00</td><td class="dot-cell"><div class="dot dot-class"></div></td><td class="activity-cell"><div class="activity-main">🎓 YOUR CLASSES — Data Vis + DDM (12:00–16:00)</div><div class="activity-sub">She has 4 hours — plenty for a solo afternoon. Suggested itinerary for her:<br><br>
+<strong>Option A — Botanical Gardens + Latin Quarter:</strong><br>
+• <strong>Copenhagen Botanical Gardens</strong> (Øster Farimagsgade 2B, Nørreport) — Free entry to the outdoor gardens. The Victorian Palm House is a stunning cast-iron greenhouse dating to 1874 — one of the most beautiful spaces in Copenhagen. Very peaceful on a weekday afternoon. Budget 1–1.5h.<br>
+• <strong>The Latin Quarter</strong> — The old university neighbourhood surrounding the gardens. Wander along <strong>Fiolstræde</strong> and <strong>Studiestræde</strong> — lined with second-hand bookshops, independent cafes, and small boutiques. Very charming, very local. Grab a coffee at <strong>Paludan Bog & Café</strong> (Fiolstræde 10) — a bookshop café with a lovely atmosphere.<br><br>
+<strong>Option B — Shopping afternoon:</strong><br>
+• <strong>Magasin du Nord</strong> (Kongens Nytorv 13) — Copenhagen's most famous department store, 6 floors. Fashion, beauty, homeware, a great food hall in the basement. Metro: Kongens Nytorv (M1/M2). Could easily spend 2h here.<br>
+• <strong>Illum</strong> (Østergade 52, Strøget) — slightly more upscale department store a few minutes walk from Magasin. Together these two make a perfect afternoon loop.<br><br>
+<strong>Option C — Museum afternoon:</strong><br>
+• <strong>SMK — National Gallery of Denmark</strong> (Sølvgade 48–50) — Free permanent collection, impressive building, excellent cafe inside. 10 min walk from Nørreport. 2h is comfortable for the highlights.
+<span class="activity-tag tag-tip">Send her Option A or B — both are self-explanatory and easy by metro</span></div></td></tr>
+        <tr><td class="time-cell">16:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Back together — head to Absalon</div><div class="activity-sub">Both of you will be tired from Italy so nothing demanding tonight. Walk over to <strong>Absalon</strong> (Sønder Boulevard 73, Vesterbro) — a converted 19th-century church turned community hub. Stunning vaulted interior with long communal tables, pottery studio upstairs, drinks available. Open until midnight. A great way to decompress somewhere interesting without it feeling like a tourist activity.<br><span class="activity-tag tag-tip">Hidden gem — feels like a locals' living room, zero tourists</span></div></td></tr>
+        <tr><td class="time-cell">19:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Dinner — Cantina, Indre By</div><div class="activity-sub">Italian bistro-bar on Borgergade 2 — spicy rigatoni and vodka pasta are the cult orders. Cosy Scandi-Italian vibe that turns into a proper bar scene later in the evening. Great date night energy, popular with young locals. Book ahead.<br><span class="activity-tag tag-tip">TikTok-famous for the spicy rigatoni — it lives up to it</span><br><span class="activity-tag tag-alt">Alt: Gasoline Grill (Landgreven 10) — cult burger spot, started in a petrol station. Queue outside, eat on the street.</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 10 -->
+  <div class="day-card cph-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">10</div>
+      <div class="day-info">
+        <div class="day-date">Thursday, April 9</div>
+        <div class="day-title">CPH — Your Classes Day</div>
+      </div>
+      <span class="city-badge badge-cph">Copenhagen</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">09:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Breakfast together — Juno the Bakery, Frederiksberg</div><div class="activity-sub">The one that was almost on the itinerary from the start. Juno is a cult Copenhagen bakery famed for their cardamom knots and pistachio croissant — expect a short queue but it moves fast. Address: Gammel Kongevej 108, Frederiksberg.<br><span class="activity-tag tag-tip">Perfectly placed — she stays in Frederiksberg/Vesterbro for her solo day after you leave for class at 10:00</span></div></td></tr>
+
+        <tr class="row-highlight"><td class="time-cell">10:00</td><td class="dot-cell"><div class="dot dot-class"></div></td><td class="activity-cell"><div class="activity-main">🎓 YOUR CLASSES — Ethical Hacking (10:00–14:00)</div><div class="activity-sub">She has a solid 4-hour morning/early afternoon window. Suggested itinerary for her:<br><br>
+<strong>Option A — Vesterbro: Værnedamsvej + Istedgade:</strong><br>
+• <strong>Værnedamsvej</strong> — Copenhagen's most charming street, nicknamed "Little Paris." A short stretch lined with French-style wine bars, artisan cheese shops, florists, and independent boutiques. Start with coffee at <strong>Riccos Kaffebar</strong> (Istedgade 119) — one of CPH's oldest and most beloved independent coffee spots.<br>
+• <strong>Istedgade</strong> — Vesterbro's main artery, now a genuinely cool strip of vintage stores, concept shops, and cafés. <strong>Den Blå Hest</strong> (Istedgade 66) is a great independent boutique. <strong>Samarkand</strong> (Istedgade 87) for quality second-hand. Completely different crowd and vibe from Nørrebro.<br><br>
+<strong>Option B — Museum + design:</strong><br>
+• <strong>Designmuseum Danmark</strong> (Bredgade 68) — World-class design museum in a beautiful 18th-century building. Danish furniture, fashion, and industrial design. €14 entry, ~1.5–2h. Metro: Østerport, then 12 min walk.<br>
+• <strong>Bredgade antique street</strong> — The street the museum sits on is lined with antique and art galleries — great for window shopping after.<br><br>
+<strong>Option C — Assistens Cemetery, Nørrebro:</strong><br>
+• <strong>Assistens Kirkegård</strong> (Kapelvej 4) — Sounds unusual but this is genuinely one of Copenhagen's most beloved spots. A vast, park-like cemetery where Hans Christian Andersen and Søren Kierkegaard are buried — locals use it as a picnic and sunbathing spot on sunny days. Beautiful tree-lined paths, very peaceful, and completely off the tourist radar. Free entry, open all day.<br>
+• <strong>Jægersborggade</strong> — A 10 min walk from the cemetery, this street is Nørrebro's best-kept secret: <strong>The Coffee Collective</strong> (no. 10 — some of the best coffee in the world, not an exaggeration), plus indie ceramics studios, zero-waste shops, and small galleries all along one short street.
+<span class="activity-tag tag-tip">Option A is freshest for her — Vesterbro is a completely different neighbourhood vibe</span></div></td></tr>
+        <tr><td class="time-cell">14:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">🎨 Louisiana Museum of Modern Art</div><div class="activity-sub">This is the perfect afternoon for it — classes end at 14:00 and you have nothing else planned. Take the train from Østerport or Nørreport to <strong>Humlebæk</strong> (~35 min, ~€8 each way). Louisiana sits right on the water with views across to Sweden — the building itself, the sculpture garden, and the collection are all world-class. Budget 2–2.5h inside, then the train back puts you in the city by 19:00.<br><span class="activity-tag tag-tip">One of the best museums in Europe — the setting alone is worth it</span><br><span class="activity-tag tag-alt">If the weather's bad: SMK National Gallery (free permanent collection, Nørreport) is the indoor fallback</span></div></td></tr>
+        <tr><td class="time-cell">19:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Dinner — Hija de Sanchez, Kødbyen</div><div class="activity-sub">Opened by former Noma chef Rosio Sanchez — widely considered the best tacos in Copenhagen and genuinely among the best in Europe. Counter seating, no reservations, queue outside. Address: Slagterboderne 8, Kødbyen (Meatpacking District). Then drinks at <strong>War Pigs Brewpub</strong> next door — enormous craft beer selection, great rock music, very lively crowd.<br><span class="activity-tag tag-tip">Hidden gem — ex-Noma chef doing tacos in a meatpacking warehouse</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 11 -->
+  <div class="day-card travel-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">11</div>
+      <div class="day-info">
+        <div class="day-date">Friday, April 10</div>
+        <div class="day-title">CPH → Paris — Bonsoir!</div>
+      </div>
+      <span class="city-badge badge-travel">CPH → Paris</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr class="row-highlight"><td class="time-cell">08:00</td><td class="dot-cell"><div class="dot dot-class"></div></td><td class="activity-cell"><div class="activity-main">🎓 YOUR CLASSES — Mobile App Dev (08:00–10:00) + LSDA (10:00–14:00)</div><div class="activity-sub">Long solo stretch — 6 hours — but she needs to be <strong>back and packed by 14:00</strong> as you head to the airport at ~15:25. Keep her itinerary central and easy to wrap up.<br><br>
+<strong>Suggested solo morning for her:</strong><br>
+• <strong>Lagkagehuset</strong> (Torvegade 45, Christianshavn — or any branch) — breakfast pastry to start. Opens 6am.<br>
+• <strong>Islands Brygge waterfront</strong> (Islands Brygge, Amager) — one of Copenhagen's best-kept secrets for visitors. A long waterfront promenade along the harbour with views back to the city skyline, a free outdoor harbour bath (swimming pool in the sea, open from May but beautiful to walk past), and lovely cafés. Very popular with young locals on sunny days. Metro to Islands Brygge (M1), then walk along the water. Budget 1–1.5h.<br>
+• <strong>Gammel Strand & Slotsholmen</strong> — Head back towards the city centre. Gammel Strand is a beautiful old harbour quay lined with antique dealers and art galleries, very easy browsing. Cross onto Slotsholmen island to see Christiansborg Palace exterior — the seat of the Danish Parliament, completely free to walk around outside, very photogenic.<br>
+• <strong>Hay House</strong> (Østergade 61) — if she wants one last Copenhagen design shop, this is the one she won't have been to. Denmark's most famous design brand — homewares, furniture, accessories. Very aesthetic interior, very tempting to browse even without buying. 5 min walk from Slotsholmen.<br>
+• Back home by 13:00 to pack and be ready when you finish at 14:00.<br><br>
+⚠ <strong>Important:</strong> Remind her the night before to have bags mostly packed so the morning is stress-free.
+<span class="activity-tag tag-tip">Islands Brygge is the highlight here — a genuinely fresh side of CPH she won't have seen</span></div></td></tr>
+        <tr><td class="time-cell">14:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Quick lunch, collect bags, head out</div><div class="activity-sub">Leave for CPH airport. ~30–40 min by metro from Oresundskollegiet</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">15:25</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ At CPH Airport</div><div class="activity-sub">2h before 17:25 flight. Check in, security, terminal.<br><span class="activity-tag tag-flight">Flight @ 17:25</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">19:25</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ Land at Paris CDG (Charles de Gaulle)</div><div class="activity-sub">Take <strong>RER B</strong> from CDG Terminal 2 directly into the city — runs every ~10–15 min. Alight at <strong>Gare du Nord</strong> or <strong>Châtelet–Les Halles</strong>, ~45 min. Then Metro Line 7 one stop to Cadet or Poissonnière — 2 min walk to Rue Bleue. Total ~1h door to door.<br><span class="activity-tag tag-train">RER B: ~€11.80 from CDG. Buy at the airport machines (Île-de-France Mobilités zone 5 ticket).</span></div></td></tr>
+        <tr><td class="time-cell">20:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🏠 Check in at 14 Rue Bleue, 9th arr.</div><div class="activity-sub">You're in an EXCELLENT location. Galeries Lafayette is a 5-min walk. Grands Boulevards, Opéra, and Montmartre are all very close.</div></td></tr>
+        <tr><td class="time-cell">21:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Dinner — near 14 Rue Bleue</div><div class="activity-sub"><strong>Rec:</strong> Bouillon Pigalle (15 min walk, iconic, affordable French brasserie, perfect for late arrival), or if too late, nearby brasseries/bistros on Rue du Faubourg Montmartre are open late.<br><span class="activity-tag tag-alt">Or: grab food at BVA airport if very late arriving</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ======================== PART 2 ======================== -->
+  <div class="part-header" style="margin-top:48px">
+    <div class="part-label">Part Two</div>
+    <div class="part-title">Paris — April 11 to 15</div>
+  </div>
+
+  <!-- DAY 12 -->
+  <div class="day-card paris-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">12</div>
+      <div class="day-info">
+        <div class="day-date">Saturday, April 11</div>
+        <div class="day-title">Eiffel, Galeries Lafayette &amp; Cabaret Night</div>
+      </div>
+      <span class="city-badge badge-paris">Paris</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">08:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Breakfast — Du Pain et des Idées</div><div class="activity-sub">One of Paris's most celebrated boulangeries, ~10 min walk from your flat (34 Rue Yves Toudic, 10th arr). The <em>chausson aux pommes</em> and <em>escargot pistache-praline</em> are legendary. Arrive before 10am to avoid queues.<br><span class="activity-tag tag-food">Girlfriend will be obsessed</span></div></td></tr>
+        <tr><td class="time-cell">10:00</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🛍 Galeries Lafayette Haussmann</div><div class="activity-sub">5-min walk from your flat — the most famous department store in Paris. Stunning Art Nouveau glass dome. Perfect for both high-end browsing and affordable shopping. The food hall (basement) is also world-class.<br><span class="activity-tag tag-tip">Girlfriend rec — high-end window shopping</span></div></td></tr>
+        <tr><td class="time-cell">12:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥖 Lunch — Café de la Paix or local bistro</div><div class="activity-sub"><strong>Rec:</strong> Café de la Paix (historic, near Opéra — splurge-worthy) or any of the excellent bistros on Rue du Faubourg Montmartre.<br><span class="activity-tag tag-alt">Budget alt: Lunch from Galeries Lafayette food hall</span></div></td></tr>
+        <tr><td class="time-cell">14:00</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🗼 Eiffel Tower</div><div class="activity-sub">Take Metro Line 9 → Trocadéro for the best view first, then walk across. <strong>Pre-book 2nd floor or Summit tickets online</strong> — no queue if booked. Allow 1.5–2h including travel time.<br><span class="activity-tag tag-book">⚠ Pre-book — long queues otherwise</span></div></td></tr>
+        <tr><td class="time-cell">16:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🚢 Seine River Cruise — Bateaux Mouches</div><div class="activity-sub">Pont de l'Alma is a 5 min walk from the Eiffel Tower — perfect timing. Evening cruise (1h) with the city lighting up as you sail. Costs ~€15–17pp. Book the 17:30 departure at bateaux-mouches.fr.<br><span class="activity-tag tag-tip">Seamless add-on right after the Eiffel Tower — don't miss it</span></div></td></tr>
+        <tr><td class="time-cell">18:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">Head back, freshen up for the show</div><div class="activity-sub">You'll want to be dressed up for the Cabaret. Get back, change, have a light bite if needed.</div></td></tr>
+        <tr><td class="time-cell">20:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Pre-show dinner — Montmartre</div><div class="activity-sub">Head up to Montmartre early for dinner before the show. <strong>Rec:</strong> Le Relais de la Butte or any bistro on Rue Lepic. Montmartre has the perfect romantic evening atmosphere.</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">21:00</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🎭 CABARET SHOW</div><div class="activity-sub"><strong>Top recommendation: Moulin Rouge</strong> (82 Blvd de Clichy, Montmartre — 2 min from dinner!). The most iconic. 21:00 show is the classic timing. Book the show-only ticket (no dinner needed if you eat beforehand) — cheaper and the show is the same! ~€115–130 per person for show-only.<br><strong>Alt: Lido de Paris</strong> (Champs-Élysées) — more polished, slightly less touristy feel.<br><strong>Alt: Crazy Horse</strong> (near Trocadéro) — more artistic, more intimate.<br><span class="activity-tag tag-show">⚠ Book weeks in advance — sells out</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 13 -->
+  <div class="day-card paris-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">13</div>
+      <div class="day-info">
+        <div class="day-date">Sunday, April 12</div>
+        <div class="day-title">Louvre, Le Marais &amp; Canal Saint-Martin</div>
+      </div>
+      <span class="city-badge badge-paris">Paris</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">08:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Breakfast — Stohrer Patisserie + Rue Montorgueil</div><div class="activity-sub">Paris's oldest patisserie (since 1730!), Rue Montorgueil. The <em>baba au rhum</em> was invented here. The street itself is a charming pedestrian market lane — great for a morning stroll, picking up snacks, soaking up the neighbourhood energy.<br><span class="activity-tag tag-food">Girlfriend will love this historic patisserie</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">09:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🎨 Louvre Museum</div><div class="activity-sub">Pre-book timed-entry at ticketlouvre.fr — book the 09:30 slot. Direct entry, no queue. Prioritise: Mona Lisa, Venus de Milo, Winged Victory. 2–2.5h is enough for highlights — don't try to see everything.<br><span class="activity-tag tag-book">⚠ Timed-entry tickets essential on Sundays</span></div></td></tr>
+        <tr><td class="time-cell">12:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">📸 Le Marais — lunch, vintage shopping + Rue Crémieux</div><div class="activity-sub">~20 min walk from the Louvre. Start with lunch on <strong>Rue des Rosiers</strong> — L'As du Fallafel is legendary. Then head to the thrift stores: <strong>Kilo Shop Marais</strong> (buy clothes by weight), <strong>Free'P'Star</strong>, <strong>Violette et Léonie</strong>.<br>Then walk 15 min east to <strong>Rue Crémieux</strong> (12th arr.) — a tiny street of pastel-painted houses, one of the most photographed streets in Paris. Go in the afternoon for best light.<br><span class="activity-tag tag-tip">📸 Rue Crémieux is essential for her — incredibly aesthetic</span></div></td></tr>
+        <tr><td class="time-cell">16:00</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">📸 Canal Saint-Martin neighbourhood</div><div class="activity-sub">Just north of the Marais — one of the most beautiful and genuinely cool neighbourhoods in Paris. The iron footbridges, tree-lined canal banks, indie cafes and concept stores along <strong>Quai de Valmy</strong> and <strong>Quai de Jemmapes</strong> are incredibly photogenic. Very young, very local, not at all touristy. Stop at <strong>Chez Prune</strong> (café/bar on the canal, 36 Rue Beaurepaire) for a drink on the terrace.<br><span class="activity-tag tag-tip">📸 Best neighbourhood photography in Paris — feels like a film set</span></div></td></tr>
+        <tr><td class="time-cell">18:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🍹 Le Perchoir — Rooftop bar at sunset</div><div class="activity-sub">Paris's most celebrated rooftop bar — 360° views over the rooftops, Eiffel Tower visible in the distance, very cool crowd. Address: 14 Rue Crespin du Gast, 11th arr. (Ménilmontant/Oberkampf area). Book a table or arrive early — it fills up. Cocktails ~€14–16.<br><span class="activity-tag tag-tip">📸 Rooftop bar rec — one of the best views in Paris</span></div></td></tr>
+        <tr><td class="time-cell">20:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Dinner — Oberkampf or back toward home</div><div class="activity-sub"><strong>Rec:</strong> Le Bouillon Chartier Montmartre (classic French brasserie, very affordable, iconic) or stay in the Oberkampf area — <strong>Septime</strong> if you want to splash out (book weeks ahead), or <strong>Au Passage</strong> for natural wine and sharing plates (more casual, equally excellent).</div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 14 -->
+  <div class="day-card paris-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">14</div>
+      <div class="day-info">
+        <div class="day-date">Monday, April 13</div>
+        <div class="day-title">🏰 Full Day — Disneyland Paris</div>
+      </div>
+      <span class="city-badge badge-paris">Disneyland</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr class="row-highlight"><td class="time-cell">07:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">Early start — quick breakfast, head out</div><div class="activity-sub">Get there at rope drop (park opens 9:00–9:30am for most). Earlier = shorter queues on the big rides.</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">08:15</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🚇 RER A to Marne-la-Vallée Chessy (Disney station)</div><div class="activity-sub">From Châtelet-Les-Halles or Nation, ~40 min direct. Trains run frequently.<br><span class="activity-tag tag-train">~€8 each way, buy tickets in advance</span></div></td></tr>
+        <tr><td class="time-cell">09:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🏰 Disneyland Park — full morning</div><div class="activity-sub">Head straight to: <strong>Big Thunder Mountain</strong> (open early), <strong>Pirates of the Caribbean</strong>, <strong>Phantom Manor</strong>. Use Disney Premier Access app to book the most popular rides. The castle is stunning in spring with flowers.<br><span class="activity-tag tag-book">Buy multi-day/park-hopper tickets online</span></div></td></tr>
+        <tr><td class="time-cell">13:00</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍔 Lunch in the park</div><div class="activity-sub">Either pre-book a Disney restaurant (Blue Lagoon by Pirates of the Caribbean is magical — book weeks in advance!), or grab food from one of the themed restaurants. Budget €20–25pp for a sit-down option.</div></td></tr>
+        <tr><td class="time-cell">14:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">Walt Disney Studios Park</div><div class="activity-sub">Walk across to the Studios park. Don't miss: <strong>Avengers Campus</strong>, <strong>Toy Story Playland</strong>, <strong>Cars Road Trip</strong>. The Studios is smaller but great fun and less crowded.<br><span class="activity-tag tag-alt">Alt: Stay in Disneyland Park all day if you prefer the classics</span></div></td></tr>
+        <tr><td class="time-cell">18:00</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">Evening parade + Disney Illuminations show</div><div class="activity-sub">The evening shows in Disneyland Park (projection mapping on the castle + fireworks) are absolutely incredible. Check the day's schedule — usually starts 21:30 on weekends in April. Worth staying for!<br><span class="activity-tag tag-tip">The fireworks show will genuinely surprise you both</span></div></td></tr>
+        <tr><td class="time-cell">22:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🚇 RER A back to Paris</div><div class="activity-sub">~40 min back. Grab McDonald's or a crepe from a stand — pure tired-but-happy Disney aftermath energy.</div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 15 -->
+  <div class="day-card paris-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">15</div>
+      <div class="day-info">
+        <div class="day-date">Tuesday, April 14</div>
+        <div class="day-title">Catacombs, Montmartre &amp; Last Paris Moments</div>
+      </div>
+      <span class="city-badge badge-paris">Paris</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">08:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Morning pastry run — Pierre Hermé or Ladurée</div><div class="activity-sub"><strong>Pierre Hermé</strong> (72 Rue Bonaparte, 6th arr.) — the best macarons in Paris. Try the Ispahan (rose, lychee, raspberry). <strong>Ladurée</strong> (16 Rue Royale) is the classic choice if she prefers the iconic pastel-box experience.<br><span class="activity-tag tag-food">Last Paris pastry splurge!</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">10:00</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">💀 Paris Catacombs</div><div class="activity-sub">Metro Line 4/6 → Denfert-Rochereau. The underground ossuary with 6 million remains — dark, fascinating, unlike anything else. ~1.5h inside. <strong>Timed-entry tickets sell out days in advance — book ASAP.</strong><br><span class="activity-tag tag-book">⚠ Must pre-book at paris-catacombs.com</span></div></td></tr>
+        <tr><td class="time-cell">12:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥞 Lunch — Breizh Café (Montparnasse)</div><div class="activity-sub">Just around the corner from the Catacombs exit. Incredible Breton buckwheat galettes and crêpes — her bread-loving palate will adore these. One of the best lunch spots in Paris. Address: 112 Rue du Cherche-Midi, 6th arr. Book ahead or expect a short queue.<br><span class="activity-tag tag-alt">Alt: La Grande Épicerie de Paris (Rue de Sèvres, 7th) — stunning upscale food hall, great for grazing</span></div></td></tr>
+        <tr><td class="time-cell">14:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🛍 SoPi (South Pigalle) neighbourhood</div><div class="activity-sub">Paris's trendiest neighbourhood right now — the stretch of Rue des Martyrs and surrounding streets between Pigalle and Notre-Dame-de-Lorette. Independent boutiques, excellent vintage stores, bakeries, concept stores. Very young and local energy. <strong>Don't miss:</strong> <strong>La Jolie Garde-Robe</strong> (vintage), <strong>Pigalle store</strong> (the brand's flagship), the bakeries and cheese shops on Rue des Martyrs itself.<br><span class="activity-tag tag-tip">Girlfriend rec — trendiest neighbourhood in Paris right now</span></div></td></tr>
+        <tr><td class="time-cell">17:00</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🍹 Galeries Lafayette Rooftop — Free panoramic views</div><div class="activity-sub">5 min walk from your flat — the rooftop terrace of Galeries Lafayette Haussmann is completely free and has one of the best views in Paris: Eiffel Tower, Sacré-Cœur, Opéra all visible. Go at golden hour. Head up through the store to the 9th floor rooftop.<br><span class="activity-tag tag-tip">📸 Free rooftop — most tourists don't know about this</span></div></td></tr>
+        <tr><td class="time-cell">18:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">Arc de Triomphe — Sunset from the top</div><div class="activity-sub">Metro Line 3 or 9 → Charles de Gaulle-Étoile. The rooftop is open until 23:00 in spring — book a 19:00 slot for the last light over the Champs-Élysées. Book online at paris-arc-de-triomphe.fr (~€13pp).<br><span class="activity-tag tag-book">Book rooftop access online</span></div></td></tr>
+        <tr><td class="time-cell">20:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🍽 Last dinner in Paris — make it count</div><div class="activity-sub"><strong>Rec:</strong> Bouillon Pigalle (18 Rue Caumartin) — unbeatable classic French brasserie, affordable, always buzzing. Or Au Passage (1 bis Passage Saint-Sébastien, 11th) for natural wine and incredible sharing plates — a true hidden gem.<br><span class="activity-tag tag-alt">Splurge: Septime (80 Rue de Charonne) — one of the best restaurants in Paris. Book weeks ahead.</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">22:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">🎷 Jazz Bar — Caveau de la Huchette</div><div class="activity-sub">Paris's most legendary jazz club, open since 1946. Live jazz and swing every night in a medieval cave — a genuinely electric atmosphere. Young and old crowd, people dance spontaneously, no pretension. Address: 5 Rue de la Huchette, 5th arr. (near Notre-Dame). Entry ~€15 after 22:00. Open until 2–3am.<br><strong>Alt:</strong> <strong>Le Duc des Lombards</strong> (42 Rue des Lombards, 1st arr.) — more polished jazz venue, world-class musicians, seated format. Slightly pricier but incredible quality.<br><span class="activity-tag tag-show">Her jazz bar wish — best possible night for it</span><span class="activity-tag tag-tip">Perfect last night in Paris</span></div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 16 -->
+  <div class="day-card travel-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">16</div>
+      <div class="day-info">
+        <div class="day-date">Wednesday, April 15</div>
+        <div class="day-title">Paris → Home — Final Hours &amp; Farewell</div>
+      </div>
+      <span class="city-badge badge-travel">Paris → CPH</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">08:30</td><td class="dot-cell"><div class="dot dot-food"></div></td><td class="activity-cell"><div class="activity-main">🥐 Final Paris breakfast — neighbourhood bakery</div><div class="activity-sub">Something close to the flat. Get a coffee and croissant, sit somewhere nice. The 9th arr. is full of lovely spots. Savour it.</div></td></tr>
+        <tr><td class="time-cell">09:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">Check out & store luggage (if needed)</div><div class="activity-sub">Check-out time may be 11am. If yes, store bags with the host or a nearby luggage storage (Nannybag or Stasher app — several near Gare du Nord, ~10 min walk)</div></td></tr>
+        <tr><td class="time-cell">10:30</td><td class="dot-cell"><div class="dot dot-paris"></div></td><td class="activity-cell"><div class="activity-main">Last Paris wander — around Grands Boulevards</div><div class="activity-sub">A final stroll through the neighbourhood. Pop back to Galeries Lafayette for any last purchases. The area around Passage Jouffroy (glass-roofed 19th-century arcade) is beautiful and very close.</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">11:30</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">Head to CDG Airport</div><div class="activity-sub">Walk or Metro to <strong>Gare du Nord</strong> (~10 min from your flat), then <strong>RER B direct to CDG Terminal 2</strong>, ~45 min. Depart Gare du Nord by 11:30 → at CDG by ~12:15, comfortably within the 2h buffer for your 14:00 flight. Collect any stored luggage first if needed.<br><span class="activity-tag tag-flight">RER B: ~€11.80. No stress with CDG — great timing from your flat.</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">14:00</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ Fly Paris → Copenhagen</div><div class="activity-sub"><span class="activity-tag tag-flight">Flight @ 14:00 → Land CPH 15:55</span></div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">15:55</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">✈️ Land Copenhagen</div><div class="activity-sub">Metro home. Drop bags, rest. Light dinner together — maybe order in or cook at home. She flies tomorrow morning.</div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 17 -->
+  <div class="day-card cph-accent">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">17</div>
+      <div class="day-info">
+        <div class="day-date">Thursday, April 16</div>
+        <div class="day-title">Farewell Morning</div>
+      </div>
+      <span class="city-badge badge-cph">Copenhagen → Departure</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="day-body">
+      <table class="timetable">
+        <tr><td class="time-cell">07:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Wake up, light breakfast together</div><div class="activity-sub">Last Danish pastry together? Or a proper home breakfast. Something quiet and meaningful before the rush.</div></td></tr>
+        <tr><td class="time-cell">08:00</td><td class="dot-cell"><div class="dot dot-cph"></div></td><td class="activity-cell"><div class="activity-main">Head to CPH Airport together</div><div class="activity-sub">Metro M2 from near Oresundskollegiet, ~30–40 min to airport. Leave by 08:00 latest for safety.</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">09:55</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ She checks in — 2h before 11:55am flight</div><div class="activity-sub">Say your goodbyes at the check-in desks. She goes through security. End of a wonderful trip 💙</div></td></tr>
+        <tr class="row-highlight"><td class="time-cell">11:55</td><td class="dot-cell"><div class="dot dot-flight"></div></td><td class="activity-cell"><div class="activity-main">✈️ Girlfriend flies home</div><div class="activity-sub">You did it!</div></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- BOOKING CHECKLIST -->
+  <div style="margin-top:48px; margin-bottom:16px;">
+    <div class="part-label">Pre-Trip</div>
+    <div class="part-title" style="font-size:28px">Booking Checklist</div>
+  </div>
+
+  <div style="background:var(--white); border-radius:12px; border:1px solid var(--border); box-shadow:0 1px 3px rgba(0,0,0,0.06); overflow:hidden; margin-bottom:32px;">
+
+    <!-- CHECKLIST INTRO -->
+    <div style="padding:16px 24px; background:#FFFFF0; border-bottom:1px solid #FAF089; font-size:13px; color:#744210;">
+      <strong>⚠ Book in the order listed below</strong> — items at the top sell out fastest. Ticked items are optional; unticked are essential.
+    </div>
+
+    <!-- URGENT -->
+    <div style="padding:14px 24px 4px; border-bottom:1px solid var(--border);">
+      <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#C53030; margin-bottom:12px;">🔴 Book This Week — Sells Out Weeks Ahead</div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🎭 Moulin Rouge — Show Only Ticket (Apr 11, 21:00 show)</div>
+          <div class="check-detail">Book at <strong>moulinrouge.fr</strong> · Show-only (no dinner) ~€115–130pp · Dress code: smart/evening wear · Arrive 30 min early · Address: 82 Blvd de Clichy, Paris 18th</div>
+          <div class="check-tags"><span class="check-tag tag-paris">Paris · Apr 11</span><span class="check-tag tag-book">Essential</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">💀 Paris Catacombs — Timed Entry (Apr 14)</div>
+          <div class="check-detail">Book at <strong>paris-catacombs.com</strong> · ~€29pp · Often sold out 2+ weeks ahead · Slot: 10:00 recommended · Address: 1 Av. du Colonel Henri Rol-Tanguy, 14th arr.</div>
+          <div class="check-tags"><span class="check-tag tag-paris">Paris · Apr 14</span><span class="check-tag tag-book">Essential</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🚄 Frecciarossa: Milano → Roma (Apr 5, ~13:00)</div>
+          <div class="check-detail">Book at <strong>trenitalia.com</strong> or Trainline app · 2nd class (standard) ~€30–50pp if booked early · Journey ~3h · Milano Centrale → Roma Termini</div>
+          <div class="check-tags"><span class="check-tag tag-milan">Italy · Apr 5</span><span class="check-tag tag-book">Essential</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🚄 Frecciarossa: Roma → Milano (Apr 7, ~13:30)</div>
+          <div class="check-detail">Book at <strong>trenitalia.com</strong> or Trainline app · 2nd class ~€30–50pp · Journey ~3h · Roma Termini → Milano Centrale · Must arrive by ~16:30 to store bags and catch BGY flight</div>
+          <div class="check-tags"><span class="check-tag tag-rome">Italy · Apr 7</span><span class="check-tag tag-book">Essential</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🏰 Disneyland Paris — Park Tickets (Apr 13)</div>
+          <div class="check-detail">Book at <strong>disneylandparis.com</strong> · 1-day 2-park (Disneyland + Studios) recommended · ~€89–109pp depending on date · Download Disneyland Paris app for Premier Access ride booking on the day</div>
+          <div class="check-tags"><span class="check-tag tag-paris">Paris · Apr 13</span><span class="check-tag tag-book">Essential</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🏛 Colosseum + Roman Forum — Timed Entry (Apr 6)</div>
+          <div class="check-detail">Book at <strong>coopculture.it</strong> · Combined ticket ~€18pp · ⚠ Easter Monday is one of the busiest days of the year — slots sell out weeks ahead · Go for 09:00 slot · Address: Piazza del Colosseo, Rome</div>
+          <div class="check-tags"><span class="check-tag tag-rome">Rome · Apr 6</span><span class="check-tag tag-book">Essential</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🏛 Borghese Gallery — Rome (Apr 7 morning)</div>
+          <div class="check-detail">Book at <strong>galleriaborghese.it</strong> · ~€15pp · Strictly timed 2h slots, max 360 visitors — almost always fully booked well in advance · If you want this, book today · Address: Piazzale Scipione Borghese 5 (15 min walk from your airbnb)</div>
+          <div class="check-tags"><span class="check-tag tag-rome">Rome · Apr 7</span><span class="check-tag tag-book">Book now or skip</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOOK SOON -->
+    <div style="padding:14px 24px 4px; border-bottom:1px solid var(--border);">
+      <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#C05621; margin-bottom:12px;">🟠 Book Soon — Popular, Especially in Spring</div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🗼 Eiffel Tower — 2nd Floor or Summit (Apr 11)</div>
+          <div class="check-detail">Book at <strong>toureiffel.paris</strong> · Summit ~€28pp, 2nd floor ~€18pp · Afternoon slot (14:30–15:00) works well with the day plan · Long queues without booking · Address: Champ de Mars, Paris 7th</div>
+          <div class="check-tags"><span class="check-tag tag-paris">Paris · Apr 11</span><span class="check-tag tag-book">Essential</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🎨 Louvre — Timed Entry (Apr 12)</div>
+          <div class="check-detail">Book at <strong>ticketlouvre.fr</strong> · ~€22pp · Book the 09:30 slot to beat crowds — gets very busy by midday on Saturdays · Bring the confirmation on your phone · Address: Rue de Rivoli, Paris 1st</div>
+          <div class="check-tags"><span class="check-tag tag-paris">Paris · Apr 12</span><span class="check-tag tag-book">Essential</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🎡 Tivoli Gardens Easter — Copenhagen (Mar 31)</div>
+          <div class="check-detail">Book at <strong>tivoli.dk</strong> · ~€20pp entry, rides extra or get an all-inclusive wristband (~€50pp) · Easter decorations and special programming · Consider the ride pass if you plan to go on several rides</div>
+          <div class="check-tags"><span class="check-tag tag-cph">Copenhagen · Mar 31</span><span class="check-tag tag-book">Recommended</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🏛 The Pantheon — Entry Ticket (Apr 6)</div>
+          <div class="check-detail">Book at <strong>pantheonroma.com</strong> · ~€5pp · Now requires a ticket (since 2023) · Can book same week usually but worth doing in advance · Address: Piazza della Rotonda, Rome</div>
+          <div class="check-tags"><span class="check-tag tag-rome">Rome · Apr 6</span><span class="check-tag tag-book">Recommended</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOOK BEFORE YOU GO -->
+    <div style="padding:14px 24px 4px; border-bottom:1px solid var(--border);">
+      <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#276749; margin-bottom:12px;">🟢 Book Before You Leave — Can Wait a Week or Two</div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🗼 Arc de Triomphe — Rooftop Access (Apr 14)</div>
+          <div class="check-detail">Book at <strong>paris-arc-de-triomphe.fr</strong> · ~€13pp · Open until 23:00 in spring — book a 17:00–18:00 slot for sunset · Address: Pl. Charles de Gaulle, Paris 8th</div>
+          <div class="check-tags"><span class="check-tag tag-paris">Paris · Apr 12</span><span class="check-tag tag-book">Recommended</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🏛 Duomo di Milano — Rooftop Terrace (Apr 3 or 4)</div>
+          <div class="check-detail">Book at <strong>duomomilano.it</strong> · Cathedral + rooftop combo ~€20pp · Go up to the rooftop terraces — extraordinary views over the spires and the city · Address: Piazza del Duomo, Milan</div>
+          <div class="check-tags"><span class="check-tag tag-milan">Milan · Apr 3–4</span><span class="check-tag tag-book">Recommended</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🧳 KiPoint Luggage Storage — Milano Centrale (Apr 7)</div>
+          <div class="check-detail">Book at <strong>kipointstorage.com</strong> · ~€6–8 per bag · Open until midnight · Located inside Milano Centrale station · Essential for exploring Milan hands-free before your 22:15 flight</div>
+          <div class="check-tags"><span class="check-tag tag-milan">Milan · Apr 7</span><span class="check-tag tag-book">Essential</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🍽 Da Enzo al 29 — Trastevere dinner (Apr 7)</div>
+          <div class="check-detail">Book at <strong>daenzonal29.com</strong> or via TheFork · Very popular Roman trattoria, books out days ahead · Address: Via dei Vascellari 29, Trastevere · Alt if unavailable: Tonnarello next door (no booking needed)</div>
+          <div class="check-tags"><span class="check-tag tag-rome">Rome · Apr 7</span><span class="check-tag tag-book">Book ahead</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🍽 Trattoria Madonnina — Navigli dinner (Apr 4)</div>
+          <div class="check-detail">Book via TheFork or phone · Classic Milanese trattoria on Via Gentilino 6, Navigli · Books up on weekends · Alt: any canal-side trattoria on Naviglio Grande if unavailable</div>
+          <div class="check-tags"><span class="check-tag tag-milan">Milan · Apr 4</span><span class="check-tag tag-book">Book ahead</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🍽 Cantina — Copenhagen dinner (Apr 8)</div>
+          <div class="check-detail">Book at <strong>cantinacph.dk</strong> · Borgergade 2, Indre By · Popular with locals — book a few days ahead · Open Sun–Thu until midnight, Fri–Sat until 01:00</div>
+          <div class="check-tags"><span class="check-tag tag-cph">Copenhagen · Apr 8</span><span class="check-tag tag-book">Book ahead</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🚂 Louisiana Museum of Modern Art — Day trip (Apr 9)</div>
+          <div class="check-detail">No booking needed for entry · Buy train tickets at <strong>dsb.dk</strong> or the DSB app · Train: Nørreport or Østerport → Humlebæk (~35 min, ~€8 each way) · Museum entry ~€25pp · Open until 22:00 Tues–Fri · Check for temporary exhibitions at louisiana.dk</div>
+          <div class="check-tags"><span class="check-tag tag-cph">Copenhagen · Apr 9</span><span class="check-tag tag-book">No booking needed</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🚢 Seine River Cruise — Bateaux Mouches (Apr 11)</div>
+          <div class="check-detail">Book at <strong>bateaux-mouches.fr</strong> · ~€15–17pp · Evening cruise departs from Pont de l'Alma · 1h duration · Book 19:30 or 20:00 departure for best evening light · Metro: Alma-Marceau (Line 9)</div>
+          <div class="check-tags"><span class="check-tag tag-paris">Paris · Apr 14</span><span class="check-tag tag-book">Recommended</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🍽 Blue Lagoon Restaurant — Disneyland Paris (Apr 13)</div>
+          <div class="check-detail">Book at <strong>disneylandparis.com</strong> (Restaurants section) · The most magical restaurant in the park — inside Pirates of the Caribbean ride · ~€40–55pp for lunch · Book as soon as your park tickets are confirmed · Worth every cent</div>
+          <div class="check-tags"><span class="check-tag tag-paris">Disneyland · Apr 13</span><span class="check-tag tag-book">Optional splurge</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NICE TO HAVE -->
+    <div style="padding:14px 24px 16px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#4A5568; margin-bottom:12px;">⚪ Nice to Have — Walk-In Usually Fine But Worth Checking</div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🎨 Pinacoteca di Brera — Milan (Apr 4)</div>
+          <div class="check-detail">Book at <strong>pinacotecabrera.org</strong> · ~€15pp · Usually not sold out but worth pre-booking to avoid queues · Address: Via Brera 28, Milan · ~1h for highlights</div>
+          <div class="check-tags"><span class="check-tag tag-milan">Milan · Apr 4</span><span class="check-tag tag-book">Optional</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🎨 SMK National Gallery — Copenhagen (Apr 8, for her solo)</div>
+          <div class="check-detail">Book at <strong>smk.dk</strong> · Free permanent collection · No booking needed for permanent galleries · Special exhibitions ~€15 · Address: Sølvgade 48–50, Copenhagen · Metro: Nørreport then 10 min walk</div>
+          <div class="check-tags"><span class="check-tag tag-cph">Copenhagen · Apr 8</span><span class="check-tag tag-book">Optional</span></div>
+        </div>
+      </div>
+
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-content">
+          <div class="check-title">🍽 Septime — Paris splurge dinner (Apr 12 or 14)</div>
+          <div class="check-detail">Book at <strong>septime-la-cave.fr</strong> · 80 Rue de Charonne, 11th arr. · One of the best restaurants in Paris — books out weeks ahead · Only realistic if you plan now · Skip if unavailable, Au Passage next door is a great walk-in alternative</div>
+          <div class="check-tags"><span class="check-tag tag-paris">Paris · Apr 12 or 14</span><span class="check-tag tag-book">Optional splurge</span></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <style>
+    .checklist-item {
+      display: flex;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      align-items: flex-start;
+      transition: background 0.15s;
+      border-radius: 6px;
+      margin: 0 -8px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    .checklist-item:last-child { border-bottom: none; }
+    .checklist-item:hover { background: rgba(0,0,0,0.015); }
+    .checklist-item.done { opacity: 0.45; }
+    .checklist-item.done .check-title { text-decoration: line-through; color: var(--muted); }
+    .check-box {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      border: 2px solid var(--border);
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: transparent;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all 0.15s;
+    }
+    .checklist-item.done .check-box {
+      background: #276749;
+      border-color: #276749;
+      color: white;
+    }
+    .check-content { flex: 1; }
+    .check-title { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .check-detail { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 5px; }
+    .check-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .check-tag {
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .tag-cph { background: var(--cph-light); color: var(--cph); }
+    .tag-milan { background: var(--milan-light); color: var(--milan); }
+    .tag-rome { background: var(--rome-light); color: var(--rome); }
+    .tag-paris { background: var(--paris-light); color: var(--paris); }
+  </style>
+    <div class="part-label">Tips &amp; Recommendations</div>
+    <div class="part-title" style="font-size:28px">By City</div>
+  </div>
+
+  <div class="tips-section">
+    <div class="tip-card">
+      <div class="tip-card-title" style="color:var(--cph)">🇩🇰 Copenhagen</div>
+      <div class="tip-item"><span class="tip-bullet">🥐</span><span><strong>Best bakeries:</strong> Juno the Bakery (cardamom knots, pistachio croissant), Hart Bageri, Andersen & Maillard, Lagkagehuset. All cult-status, all worth a queue.</span></div>
+      <div class="tip-item"><span class="tip-bullet">🍗</span><span><strong>Hidden food gems:</strong> Poulette (Møllegade 1 — cult fried chicken, go by 13:00), Hija de Sanchez (best tacos in CPH, ex-Noma chef, Kødbyen), Cantina (spicy rigatoni, Borgergade 2 — book ahead).</span></div>
+      <div class="tip-item"><span class="tip-bullet">🏛</span><span><strong>Don't miss:</strong> Absalon (Sønder Blvd 73 — converted church, community hub, most unique space in the city), Louisiana Museum (~35 min by train, world-class modern art on the water).</span></div>
+      <div class="tip-item"><span class="tip-bullet">🛍</span><span><strong>Shopping:</strong> Strøget (high street), Ravnsborggade (vintage), Nørrebro/Jægersborggade (thrift + indie), Magasin du Nord (dept store), Værnedamsvej (boutiques, "Little Paris").</span></div>
+      <div class="tip-item"><span class="tip-bullet">🚇</span><span><strong>Transport:</strong> Copenhagen Card covers metro + most museums. Very walkable city. Rent bikes if sunny!</span></div>
+      <div class="tip-item"><span class="tip-bullet">🎡</span><span><strong>Tivoli:</strong> Open for Easter — get tickets online. Absolutely must-do in the evening for the lights and atmosphere.</span></div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-card-title" style="color:var(--milan)">🇮🇹 Milano</div>
+      <div class="tip-item"><span class="tip-bullet">🥐</span><span><strong>Best pastry:</strong> Pasticceria Marchesi (Brera, via Monte Napoleone), Bar Luce (Wes Anderson–designed, in Fondazione Prada).</span></div>
+      <div class="tip-item"><span class="tip-bullet">🍝</span><span><strong>Must-eat:</strong> Risotto alla Milanese (saffron), Cotoletta Milanese (breaded veal). Don't miss aperitivo hour!</span></div>
+      <div class="tip-item"><span class="tip-bullet">🚇</span><span><strong>From BGY airport:</strong> Orio Shuttle bus (orioaeroporto.it) to Milano Centrale, ~€6, every 30 min, ~55 min.</span></div>
+      <div class="tip-item"><span class="tip-bullet">📱</span><span><strong>Book Frecciarossa</strong> at trenitalia.com or Trainline app. 2nd class (standard) is perfectly fine and much cheaper.</span></div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-card-title" style="color:var(--rome)">🏛 Roma</div>
+      <div class="tip-item"><span class="tip-bullet">🏛</span><span><strong>Colosseum:</strong> Book at coopculture.it — combined ticket with Roman Forum. Go in the morning to avoid afternoon heat and peak crowds.</span></div>
+      <div class="tip-item"><span class="tip-bullet">🍦</span><span><strong>Best gelato:</strong> Gelateria dei Gracchi (Prati — near you!), Giolitti (near Pantheon), Il Gelato di San Crispino (Pantheon). Avoid tourist trap places with towering mounds of colour.</span></div>
+      <div class="tip-item"><span class="tip-bullet">🏠</span><span><strong>Your location:</strong> Ponte Milvio is north Rome. Budget 20–30 min taxi/Uber to the main sites. Villa Borghese gardens are an easy 15 min walk — use them!</span></div>
+      <div class="tip-item"><span class="tip-bullet">🧳</span><span><strong>April 7 luggage:</strong> KiPoint at Milano Centrale (kipointstorage.com), open until midnight. Book online. ~€6/bag.</span></div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-card-title" style="color:var(--paris)">🇫🇷 Paris</div>
+      <div class="tip-item"><span class="tip-bullet">🥐</span><span><strong>Best pastries:</strong> Du Pain et des Idées (boulangerie), Pierre Hermé (macarons), Stohrer (oldest patisserie), Ladurée (classic). All within easy reach of your flat!</span></div>
+      <div class="tip-item"><span class="tip-bullet">🎭</span><span><strong>Moulin Rouge:</strong> Book show-only ticket (not dinner) at 21:00 for best value. Dress smart. moulinrouge.fr</span></div>
+      <div class="tip-item"><span class="tip-bullet">🛍</span><span><strong>Shopping:</strong> Galeries Lafayette (5 min from flat!), Le Marais vintage/boutiques, Rue de Rivoli (affordable), Porte de Vanves flea market (Sat/Sun mornings).</span></div>
+      <div class="tip-item"><span class="tip-bullet">🏰</span><span><strong>Disneyland tips:</strong> Buy tickets online (cheaper). Get there for park opening. Download the official Disneyland Paris app for real-time wait times and Premier Access ride booking.</span></div>
+      <div class="tip-item"><span class="tip-bullet">🚇</span><span><strong>Transport:</strong> RER B direct from CDG to Gare du Nord (~45 min, ~€11.80). Buy a carnet of 10 Metro tickets (€17.35) or use contactless card for getting around the city.</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Built with love for a very special spring trip ✈️ — Keep this flexible, make memories, and enjoy every croissant.
+</div>
+
+<script>
+function toggleCheck(item) {
+  item.classList.toggle('done');
+}
+
+function toggleDay(header) {
+  const card = header.parentElement;
+  card.classList.toggle('collapsed');
+}
+
+// Collapse all by default on mobile for cleaner view
+if (window.innerWidth < 768) {
+  document.querySelectorAll('.day-card').forEach(c => c.classList.add('collapsed'));
+}
+</script>
+</body>
+</html>
